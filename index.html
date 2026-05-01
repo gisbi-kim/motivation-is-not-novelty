@@ -775,6 +775,44 @@
   </li>
 </ul>
 
+<div class="red-flags">
+  <div class="red-flags-title">⚠ 미팅에서 자주 듣게 되는 위험 신호 표현</div>
+  <ul>
+    <li>"기존엔 이걸 안 했어요" (← 안 한 이유가 있을 수도)</li>
+    <li>"VLM/LLM/X에 그냥 넣어봤더니 안 되더라고요"</li>
+    <li>"그래서 모듈을 하나 추가했습니다" (× 단일 모듈)</li>
+    <li>"이게 저희 contribution입니다" (× 1개)</li>
+    <li>"비슷한 연구는 못 찾았습니다"</li>
+    <li>"실험은 아직 안 해봤지만 잘 될 것 같아요"</li>
+    <li>"이 부분은 future work입니다" (× 핵심 challenge)</li>
+    <li>"Reviewer가 물어보면 그때 답하죠"</li>
+    <li>"Ablation은 시간 없어서 못 했어요"</li>
+    <li>"우리 dataset에서만 테스트했어요"</li>
+    <li>"왜 이 모듈인지는 잘 모르겠지만 잘 돼요"</li>
+    <li>"그냥 attention/transformer/diffusion 붙였어요"</li>
+  </ul>
+</div>
+
+<h2>마지막 자가검증: 명작 한 문장 비교<span class="sub-en">— Write your own one-liner</span></h2>
+
+<div class="case-study">
+  <div class="case-grid" style="grid-template-columns: 80pt 1fr; border-top: 0.5pt solid #c8d0d8;">
+    <div class="case-label">ResNet</div>
+    <div class="case-content"><b>"Identity mapping이 plain network에서 학습이 어렵다는 점이 degradation의 원인이며, residual reparameterization으로 이를 default로 만들 수 있다."</b></div>
+    <div class="case-label">Transformer</div>
+    <div class="case-content"><b>"Sequence modeling에서 recurrence를 제거하면 path length가 O(1)이 되어 long-range dependency가 trivial해지고, parallelism이 회복된다."</b></div>
+    <div class="case-label">NeRF</div>
+    <div class="case-content"><b>"MLP의 spectral bias로 인해 coordinate-based scene representation은 high-freq detail을 잃는데, 입력에 frequency lifting을 적용하면 이를 극복할 수 있다."</b></div>
+    <div class="case-label" style="background: #fffbe8; color: #8a6d18;">너의 논문</div>
+    <div class="case-content" style="background: #fffbe8; min-height: 36pt;">
+      <span style="color: #999;">________________________________________________________________________________</span><br><br>
+      <span style="color: #999;">________________________________________________________________________________</span>
+      <br><br>
+      <span class="hint" style="font-style: italic;">위 명작들처럼 "원인 진단 + 해법의 원리"가 담긴 한 문장으로 너의 contribution을 적을 수 없다면, 아직 motivation 단계다. 이 빈칸을 채울 수 있을 때 비로소 method 섹션을 쓸 준비가 된 것이다.</span>
+    </div>
+  </div>
+</div>
+
 <div class="dialogue-tab" id="dialogue-section">
   <div class="dialogue-tab-header">
     가상의 연구 미팅 대화로 보는 Motivation vs. Novelty
@@ -914,44 +952,6 @@
       </div>
     </div>
 
-  </div>
-</div>
-
-<div class="red-flags">
-  <div class="red-flags-title">⚠ 미팅에서 자주 듣게 되는 위험 신호 표현</div>
-  <ul>
-    <li>"기존엔 이걸 안 했어요" (← 안 한 이유가 있을 수도)</li>
-    <li>"VLM/LLM/X에 그냥 넣어봤더니 안 되더라고요"</li>
-    <li>"그래서 모듈을 하나 추가했습니다" (× 단일 모듈)</li>
-    <li>"이게 저희 contribution입니다" (× 1개)</li>
-    <li>"비슷한 연구는 못 찾았습니다"</li>
-    <li>"실험은 아직 안 해봤지만 잘 될 것 같아요"</li>
-    <li>"이 부분은 future work입니다" (× 핵심 challenge)</li>
-    <li>"Reviewer가 물어보면 그때 답하죠"</li>
-    <li>"Ablation은 시간 없어서 못 했어요"</li>
-    <li>"우리 dataset에서만 테스트했어요"</li>
-    <li>"왜 이 모듈인지는 잘 모르겠지만 잘 돼요"</li>
-    <li>"그냥 attention/transformer/diffusion 붙였어요"</li>
-  </ul>
-</div>
-
-<h2>마지막 자가검증: 명작 한 문장 비교<span class="sub-en">— Write your own one-liner</span></h2>
-
-<div class="case-study">
-  <div class="case-grid" style="grid-template-columns: 80pt 1fr; border-top: 0.5pt solid #c8d0d8;">
-    <div class="case-label">ResNet</div>
-    <div class="case-content"><b>"Identity mapping이 plain network에서 학습이 어렵다는 점이 degradation의 원인이며, residual reparameterization으로 이를 default로 만들 수 있다."</b></div>
-    <div class="case-label">Transformer</div>
-    <div class="case-content"><b>"Sequence modeling에서 recurrence를 제거하면 path length가 O(1)이 되어 long-range dependency가 trivial해지고, parallelism이 회복된다."</b></div>
-    <div class="case-label">NeRF</div>
-    <div class="case-content"><b>"MLP의 spectral bias로 인해 coordinate-based scene representation은 high-freq detail을 잃는데, 입력에 frequency lifting을 적용하면 이를 극복할 수 있다."</b></div>
-    <div class="case-label" style="background: #fffbe8; color: #8a6d18;">너의 논문</div>
-    <div class="case-content" style="background: #fffbe8; min-height: 36pt;">
-      <span style="color: #999;">________________________________________________________________________________</span><br><br>
-      <span style="color: #999;">________________________________________________________________________________</span>
-      <br><br>
-      <span class="hint" style="font-style: italic;">위 명작들처럼 "원인 진단 + 해법의 원리"가 담긴 한 문장으로 너의 contribution을 적을 수 없다면, 아직 motivation 단계다. 이 빈칸을 채울 수 있을 때 비로소 method 섹션을 쓸 준비가 된 것이다.</span>
-    </div>
   </div>
 </div>
 
