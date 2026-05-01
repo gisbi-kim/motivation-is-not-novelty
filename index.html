@@ -339,31 +339,14 @@
     border-radius: 4pt;
     overflow: hidden;
   }
-  .dialogue-tab summary {
+  .dialogue-tab-header {
     background: #e8eef5;
     padding: 14pt 20pt;
     font-size: 13pt;
     font-weight: 700;
     color: #0a3d62;
-    cursor: pointer;
-    list-style: none;
-    display: flex;
-    align-items: center;
-    gap: 10pt;
-    user-select: none;
   }
-  .dialogue-tab summary::-webkit-details-marker { display: none; }
-  .dialogue-tab summary::before {
-    content: "▶";
-    font-size: 9pt;
-    color: #0a3d62;
-    transition: transform 0.2s;
-    display: inline-block;
-  }
-  .dialogue-tab[open] summary::before {
-    transform: rotate(90deg);
-  }
-  .dialogue-tab summary .sum-sub {
+  .dialogue-tab-header .sum-sub {
     font-size: 10pt;
     font-weight: 400;
     color: #666;
@@ -445,6 +428,65 @@
     border: none;
     border-top: 1px dashed #d8dfe6;
     margin: 18pt 0;
+  }
+
+  /* Dialogue teaser */
+  .dialogue-teaser {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    border: 0.8pt solid #b8c8d8;
+    border-radius: 4pt;
+    overflow: hidden;
+    margin-bottom: 32pt;
+    text-decoration: none;
+    transition: box-shadow 0.15s;
+  }
+  .dialogue-teaser:hover {
+    box-shadow: 0 4px 16px rgba(10,61,98,0.10);
+  }
+  .dialogue-teaser-accent {
+    width: 6pt;
+    background: #0a3d62;
+    flex-shrink: 0;
+  }
+  .dialogue-teaser-body {
+    padding: 14pt 18pt;
+    background: #f4f7fb;
+    flex: 1;
+  }
+  .dialogue-teaser-label {
+    font-size: 9.5pt;
+    font-weight: 700;
+    color: #0a3d62;
+    letter-spacing: 0.8pt;
+    text-transform: uppercase;
+    margin-bottom: 6pt;
+  }
+  .dialogue-teaser-title {
+    font-size: 12.5pt;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 8pt;
+    line-height: 1.4;
+  }
+  .dialogue-teaser-preview {
+    font-size: 10.5pt;
+    color: #555;
+    line-height: 1.65;
+    font-style: italic;
+    border-left: 2pt solid #b0c4d8;
+    padding-left: 10pt;
+    margin-bottom: 10pt;
+  }
+  .dialogue-teaser-preview b { color: #0a3d62; font-style: normal; }
+  .dialogue-teaser-cta {
+    font-size: 10pt;
+    color: #0a3d62;
+    font-weight: 600;
+  }
+  .dialogue-teaser-cta::after {
+    content: " →";
   }
 
   /* 모바일 반응형 */
@@ -533,6 +575,20 @@
     </ul>
   </div>
 </div>
+
+<a class="dialogue-teaser" href="#dialogue-section">
+  <div class="dialogue-teaser-accent"></div>
+  <div class="dialogue-teaser-body">
+    <div class="dialogue-teaser-label">가상의 연구 미팅 대화</div>
+    <div class="dialogue-teaser-title">이론만으론 안 보인다 — 실제 미팅 맥락에서 Motivation과 Novelty가 어떻게 구분되는지 확인해보세요</div>
+    <div class="dialogue-teaser-preview">
+      <b>교수:</b> "기존 방법만으로는 안 된다, 그러니까 scene context를 판단하는 모듈이 앞에 붙어야 한다" — 여기까지가 모티베이션이에요. 아직 연구가 시작도 안 된 거죠.<br>
+      <b>학생:</b> 그러면 저희가 지금 어디쯤 있는 건가요?<br>
+      <b>교수:</b> 인트로 두 번째 문단까지 온 거예요 ...
+    </div>
+    <div class="dialogue-teaser-cta">가상의 연구 미팅 대화 전문 보기</div>
+  </div>
+</a>
 
 <h2>Case 1. ResNet (He et al., CVPR 2016 Best Paper)<span class="sub-en">— "왜 ResNet은 명작인가"</span></h2>
 
@@ -719,11 +775,11 @@
   </li>
 </ul>
 
-<details class="dialogue-tab">
-  <summary>
+<div class="dialogue-tab" id="dialogue-section">
+  <div class="dialogue-tab-header">
     가상의 연구 미팅 대화로 보는 Motivation vs. Novelty
     <span class="sum-sub">— 아래 대화의 연구 주제와 등장인물은 모두 가상입니다</span>
-  </summary>
+  </div>
   <div class="dialogue-body">
 
     <div class="dialogue-intro">
@@ -859,7 +915,7 @@
     </div>
 
   </div>
-</details>
+</div>
 
 <div class="red-flags">
   <div class="red-flags-title">⚠ 미팅에서 자주 듣게 되는 위험 신호 표현</div>
