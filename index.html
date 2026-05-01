@@ -332,6 +332,121 @@
     color: inherit;
   }
 
+  /* Dialogue tab */
+  .dialogue-tab {
+    margin-bottom: 28pt;
+    border: 0.8pt solid #c8d0d8;
+    border-radius: 4pt;
+    overflow: hidden;
+  }
+  .dialogue-tab summary {
+    background: #e8eef5;
+    padding: 14pt 20pt;
+    font-size: 13pt;
+    font-weight: 700;
+    color: #0a3d62;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 10pt;
+    user-select: none;
+  }
+  .dialogue-tab summary::-webkit-details-marker { display: none; }
+  .dialogue-tab summary::before {
+    content: "▶";
+    font-size: 9pt;
+    color: #0a3d62;
+    transition: transform 0.2s;
+    display: inline-block;
+  }
+  .dialogue-tab[open] summary::before {
+    transform: rotate(90deg);
+  }
+  .dialogue-tab summary .sum-sub {
+    font-size: 10pt;
+    font-weight: 400;
+    color: #666;
+    font-style: italic;
+    margin-left: 4pt;
+  }
+  .dialogue-body {
+    padding: 20pt 24pt 24pt;
+  }
+  .dialogue-intro {
+    background: #f4f7fb;
+    border-left: 3pt solid #0a3d62;
+    padding: 14pt 18pt;
+    margin-bottom: 24pt;
+    font-size: 10.5pt;
+    line-height: 1.75;
+    color: #444;
+  }
+  .dialogue-intro b { color: #0a3d62; }
+  .dialogue-section {
+    margin-bottom: 22pt;
+  }
+  .dialogue-section-title {
+    font-size: 11.5pt;
+    font-weight: 700;
+    color: #0a3d62;
+    margin-bottom: 10pt;
+    padding: 6pt 12pt;
+    background: #e8eef5;
+    border-left: 3pt solid #0a3d62;
+  }
+  .dialogue-section-title .sec-num {
+    color: #999;
+    font-weight: 400;
+    margin-right: 5pt;
+    font-size: 10pt;
+  }
+  .turn {
+    display: flex;
+    gap: 10pt;
+    margin-bottom: 8pt;
+    align-items: flex-start;
+  }
+  .turn-label {
+    min-width: 38pt;
+    font-size: 9.5pt;
+    font-weight: 700;
+    padding: 3pt 6pt;
+    border-radius: 3pt;
+    text-align: center;
+    flex-shrink: 0;
+    margin-top: 3pt;
+  }
+  .turn-label.prof {
+    background: #0a3d62;
+    color: #fff;
+  }
+  .turn-label.stu {
+    background: #dce6f0;
+    color: #0a3d62;
+  }
+  .turn-text {
+    font-size: 11pt;
+    line-height: 1.7;
+    color: #1a1a1a;
+    padding: 8pt 14pt;
+    border-radius: 3pt;
+    flex: 1;
+  }
+  .turn-text.prof-text {
+    background: #f7f9fb;
+    border: 0.8pt solid #d8dfe6;
+  }
+  .turn-text.stu-text {
+    background: #fff;
+    border: 0.8pt solid #e8eef5;
+  }
+  .dialogue-divider {
+    border: none;
+    border-top: 1px dashed #d8dfe6;
+    margin: 18pt 0;
+  }
+
   /* 모바일 반응형 */
   @media (max-width: 720px) {
     body {
@@ -604,6 +719,148 @@
   </li>
 </ul>
 
+<details class="dialogue-tab">
+  <summary>
+    가상의 연구 미팅 대화로 보는 Motivation vs. Novelty
+    <span class="sum-sub">— 아래 대화의 연구 주제와 등장인물은 모두 가상입니다</span>
+  </summary>
+  <div class="dialogue-body">
+
+    <div class="dialogue-intro">
+      <b>안내:</b> 아래는 가상의 연구 주제(로봇 grasping)를 소재로 구성한 가상의 지도 대화입니다.
+      실제 특정 연구실이나 인물과는 무관하며, 앞서 소개한 Motivation → Challenge → Novelty 구조가
+      실제 미팅 맥락에서 어떻게 드러나는지를 보여주기 위해 작성되었습니다.
+    </div>
+
+    <!-- 1 -->
+    <div class="dialogue-section">
+      <div class="dialogue-section-title"><span class="sec-num">1.</span> 모티베이션과 챌린지를 구분하라</div>
+      <div class="turn">
+        <span class="turn-label stu">학생</span>
+        <div class="turn-text stu-text">기존 depth 기반 grasping 방법이 투명한 물체나 반사면에서 자주 실패한다는 걸 실험으로 보였고, 그래서 foundation model 기반 scene context 모듈을 앞에 붙였습니다. 이게 저희 contribution이라고 생각했는데요.</div>
+      </div>
+      <div class="turn">
+        <span class="turn-label prof">교수</span>
+        <div class="turn-text prof-text">잠깐, 거기서 멈춰야 할 것 같아요. 지금 챌린지랑 모티베이션을 구분하지 못하고 있는 거예요.</div>
+      </div>
+      <div class="turn">
+        <span class="turn-label stu">학생</span>
+        <div class="turn-text stu-text">둘이 다른 건가요?</div>
+      </div>
+      <div class="turn">
+        <span class="turn-label prof">교수</span>
+        <div class="turn-text prof-text">"기존 방법만으로는 안 된다, 그러니까 scene context를 판단하는 모듈이 앞에 붙어야 한다" — 여기까지가 모티베이션이에요. 아직 연구가 시작도 안 된 거죠.</div>
+      </div>
+    </div>
+
+    <hr class="dialogue-divider">
+
+    <!-- 2 -->
+    <div class="dialogue-section">
+      <div class="dialogue-section-title"><span class="sec-num">2.</span> 실험을 많이 했어도 여전히 모티베이션이다</div>
+      <div class="turn">
+        <span class="turn-label stu">학생</span>
+        <div class="turn-text stu-text">근데 저희가 실험을 꽤 많이 돌렸거든요. 여러 물체 유형에서 비교도 하고, 다양한 조명 조건에서도 테스트했는데, 이 정도면 실험적으로 충분히 뒷받침된 거 아닌가요?</div>
+      </div>
+      <div class="turn">
+        <span class="turn-label prof">교수</span>
+        <div class="turn-text prof-text">그게 착각이에요. 실험을 많이 했다는 것 자체가 모티베이션을 챌린지로 바꿔주진 않아요. 모티베이션조차도 실험에서 나와야 하는 건 맞아요 — 상상만으로 도출했다고 생각하시면 안 되고. 근데 그 실험들이 "기존 방식이 안 된다"는 걸 보여준 거잖아요. 그건 문제 제기지, 해법에 대한 연구가 아니에요. 실험량이 많아지면 모티베이션이 두꺼워지는 거지, 챌린지가 생기는 게 아닙니다.</div>
+      </div>
+    </div>
+
+    <hr class="dialogue-divider">
+
+    <!-- 3 -->
+    <div class="dialogue-section">
+      <div class="dialogue-section-title"><span class="sec-num">3.</span> 모티베이션은 인트로 두 번째 문단까지밖에 못 간 것</div>
+      <div class="turn">
+        <span class="turn-label stu">학생</span>
+        <div class="turn-text stu-text">그러면 저희가 지금 어디쯤 있는 건가요?</div>
+      </div>
+      <div class="turn">
+        <span class="turn-label prof">교수</span>
+        <div class="turn-text prof-text">인트로 두 번째 문단까지 온 거예요. 독자 입장에서는 "어, 그래, 네 주장 동의할게" 하고 끄덕이는 단계죠. 근데 여기서 많은 학생들이 착각하는 게 있어요 — "좋아, 나 이런 모듈 디자인했으니까 노벨티 인정받을 수 있겠지?" — 이게 특허식 마인드예요. 논문식 마인드가 아니고. 특허는 인풋이 뭐고 아웃풋이 뭔지 명세서 쓰면 되지만, 논문은 거기서부터가 시작이에요.</div>
+      </div>
+    </div>
+
+    <hr class="dialogue-divider">
+
+    <!-- 4 -->
+    <div class="dialogue-section">
+      <div class="dialogue-section-title"><span class="sec-num">4.</span> 리뷰어 레벨에서 보면 다 모티베이션이다</div>
+      <div class="turn">
+        <span class="turn-label stu">학생</span>
+        <div class="turn-text stu-text">리뷰어들도 그렇게 생각하나요? 너무 가혹한 것 같은데...</div>
+      </div>
+      <div class="turn">
+        <span class="turn-label prof">교수</span>
+        <div class="turn-text prof-text">이게 초등학교 발명 경진대회가 아니잖아요. 박사 4년차나 교수들이 리뷰에 들어와요. 아 물론 지금 논의는 탑 티어 컨퍼런스/저널 기준의 bar에 대한 이야기에요. 지금 논문에서 인용하는 분야 유명 논문이 있으면, 그 저자 중 한 명이 리뷰어로 들어온다고 생각하면 돼요. 그 사람들 레벨에서 보면 지금까지 한 얘기는 전부 모티베이션으로밖에 안 느껴져요. 그 사람들이 진짜 궁금한 건 "너만의 챌린지가 뭐고, 그걸 얼마나 멋지게 극복했냐"예요. 모티베이션만 주장하면, 사실 그 모티베이션은 그 분야 연구자라면 누구나 공감하는 얘기거든요. 그게 노벨티가 될 순 없어요.</div>
+      </div>
+    </div>
+
+    <hr class="dialogue-divider">
+
+    <!-- 5 -->
+    <div class="dialogue-section">
+      <div class="dialogue-section-title"><span class="sec-num">5.</span> 올바른 연구 전개 구조</div>
+      <div class="turn">
+        <span class="turn-label stu">학생</span>
+        <div class="turn-text stu-text">그러면 어떤 흐름으로 가야 하는 건가요?</div>
+      </div>
+      <div class="turn">
+        <span class="turn-label prof">교수</span>
+        <div class="turn-text prof-text">순서가 있어요. 먼저 가장 단순한 naive baseline을 직접 구현해서 리얼 환경에서 돌려봐요. 생각보다 잘 안 될 거예요. 거기서 멈추지 말고, 왜 안 되는지를 케이스별로 전수 조사해서 실패 원인을 분류해요. "안 되는 이유가 이런 세 가지더라" — 이게 챌린지 포인트예요. 그다음에, 그 챌린지 포인트들을 정확하게 겨냥해서 모듈을 새롭게 설계하는 거죠. 그렇게 하면 모듈의 형태가 분석에서 자연스럽게 도출돼요. 그것만으로도 충분한 연구가 됩니다.</div>
+      </div>
+    </div>
+
+    <hr class="dialogue-divider">
+
+    <!-- 6 -->
+    <div class="dialogue-section">
+      <div class="dialogue-section-title"><span class="sec-num">6.</span> "0이던 걸 1로 만들었다"는 논리의 한계</div>
+      <div class="turn">
+        <span class="turn-label stu">학생</span>
+        <div class="turn-text stu-text">근데 기존 방법들은 이 상황에서 아예 동작을 못 했는데, 저희 건 된다는 게 contribution 아닌가요?</div>
+      </div>
+      <div class="turn">
+        <span class="turn-label prof">교수</span>
+        <div class="turn-text prof-text">사실 "기존은 0이고 우리는 1이다"라는 논리 자체가 문제는 아니에요. 그 방향으로 작업하고 있는 연구실이 이미 많다는 게 문제죠. 그러니까 먼저 모티베이션에서 도출된 나이브한 구현을 새로운 베이스라인으로 삼아요. 거기서 끝이 아니라, 앞서 분석을 통해 추가로 도출된 챌린지들까지 극복해야 하는 거고요. 그 과정에서 나이브한 메소드의 강화 버전이 자연스럽게 나오게 되죠. "단순하게 구현하면 50% 수준인데, 우리는 거기서 챌린지를 하나씩 해결해서 70%까지 끌어올렸다" — 이 얘기를 할 수 있어야 탑 학회나 저널 레벨의 메소드 페이퍼가 됩니다.</div>
+      </div>
+    </div>
+
+    <hr class="dialogue-divider">
+
+    <!-- 7 -->
+    <div class="dialogue-section">
+      <div class="dialogue-section-title"><span class="sec-num">7.</span> 하나를 고치면 세 개가 생긴다 — 그 세 개를 찾아야 한다</div>
+      <div class="turn">
+        <span class="turn-label prof">교수</span>
+        <div class="turn-text prof-text">그리고 지금 "FM으로 라우팅한다"고 끝이라고 생각하시는 것 같은데, 그게 아니에요. FM 쪽으로 라우팅을 타는 순간 리얼 월드에서 새로운 문제들이 발생해요. 하나를 고치면 세 개가 더 생기는 거죠. 예를 들어, FM은 기존 제어 루프보다 응답 속도가 훨씬 느릴 텐데 그 사이 제어는 어떻게 하죠? 라우팅 기준이 너무 관대하면 FM을 너무 자주 호출해서 컴퓨팅을 낭비하고, 너무 엄격하면 필요한 순간에 못 쓰죠. 이런 실질적인 고민들이 리뷰어 레벨에서 바로 떠오르는 질문들이에요. 그 세 개를 찾아오시면, 그다음부터는 풀릴 겁니다.</div>
+      </div>
+    </div>
+
+    <hr class="dialogue-divider">
+
+    <!-- 8 -->
+    <div class="dialogue-section">
+      <div class="dialogue-section-title"><span class="sec-num">8.</span> 논문 읽기 훈련 — 인트로에서 구조를 읽어라</div>
+      <div class="turn">
+        <span class="turn-label prof">교수</span>
+        <div class="turn-text prof-text">한 가지 더 여쭤볼게요. 일주일에 논문 몇 편 정도 읽어요? 요약 시키는 거 말고, 직접.</div>
+      </div>
+      <div class="turn">
+        <span class="turn-label stu">학생</span>
+        <div class="turn-text stu-text">한 편 정도 읽는 것 같습니다.</div>
+      </div>
+      <div class="turn">
+        <span class="turn-label prof">교수</span>
+        <div class="turn-text prof-text">한 열 배는 늘려야 할 것 같아요. 요즘 AI가 요약해준 게 마치 내 실력인 것처럼 착각하게 되는 경우들이 있는데, 그건 아니에요. 메소드 섹션까지 다 읽을 필요는 없어요. 인트로와 Related Work까지만 제대로 읽어도 — 어디서 모티베이션이 끊기고, 어디가 챌린지고, 어디가 컨트리뷰션인지가 보여요. 그 구조를 읽는 눈을 키우는 게 먼저입니다.<br><br>그리고 구현하고 검증하는 능력이랑 별개로, 논문을 한 줄 한 줄 제대로 읽는 훈련도 꼭 해야 해요. 논문에서 설득력은 결국 글쓰기 능력이거든요. 근데 이게 구현력이랑 완전히 별개예요 — 코드 잘 짜는 사람이 글을 잘 쓰는 건 아니고, 반대도 마찬가지예요. 둘 다 따로 키워야 하는 근육이에요. 남의 논문을 line by line으로 읽다 보면, 저자가 왜 이 문장을 여기 배치했는지, 왜 이 단어를 골랐는지가 보이기 시작해요. 그게 쌓여야 내가 쓸 때도 설득력 있는 문장이 나와요.</div>
+      </div>
+    </div>
+
+  </div>
+</details>
+
 <div class="red-flags">
   <div class="red-flags-title">⚠ 미팅에서 자주 듣게 되는 위험 신호 표현</div>
   <ul>
@@ -644,7 +901,7 @@
 
 <div class="footer">
   <span>APRL Lab · Autonomous Perception and Robot Learning · DGIST RT/AI/ME</span>
-  <span class="quote">"Motivation은 문제를, Novelty는 해법의 필연성을 정의한다."</span>
+  <span class="quote">"Motivation은 연구의 시작, Novelty는 연구의 마무리를 정의한다."</span>
 </div>
 
 </div><!-- /page-wrap -->
